@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_matfree.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:11:47 by aapricot          #+#    #+#             */
-/*   Updated: 2019/11/12 23:02:45 by aapricot         ###   ########.fr       */
+/*   Created: 2019/10/12 19:39:14 by aapricot          #+#    #+#             */
+/*   Updated: 2019/10/16 13:38:48 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_matfree(char **str)
+void	ft_lstaddback(t_list **alst, t_list *new)
 {
-	int		x;
+	t_list		**tmp;
 
-	x = 0;
-	while (str[x])
+	if (!new || !alst)
+		return ;
+	tmp = alst;
+	while (*tmp)
 	{
-		free(str[x]);
-		x++;
+		tmp = &(*tmp)->next;
 	}
-	free(str);
-	str = NULL;
+	new->next = *tmp;
+	*tmp = new;
 }

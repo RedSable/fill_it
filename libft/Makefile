@@ -6,13 +6,12 @@
 #    By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/08 16:50:54 by aapricot          #+#    #+#              #
-#    Updated: 2019/09/28 16:30:02 by aapricot         ###   ########.fr        #
+#    Updated: 2019/10/19 16:34:11 by aapricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 SRC_DIR = ./
-INC_DIR = ./includes/
 SRC = $(addprefix ft_,\
 	memset.c bzero.c memcpy.c memccpy.c memmove.c memchr.c memcmp.c strlen.c \
 	strnlen.c strdup.c strcpy.c strncpy.c strcat.c strncat.c strlcat.c \
@@ -22,8 +21,8 @@ SRC = $(addprefix ft_,\
 	strmapi.c strequ.c strnequ.c strsub.c strjoin.c strtrim.c strsplit.c itoa.c \
 	putchar.c putstr.c putendl.c putnbr.c putchar_fd.c putstr_fd.c putendl_fd.c \
 	putnbr_fd.c isspace.c matfree.c lstnew.c lstdelone.c lstdel.c lstadd.c \
-	lstiter.c lstmap.c wc.c swap.c)
-CFLAGS = -Wall -Wextra -Werror
+	lstiter.c lstmap.c wc.c swap.c strndup.c lstaddback.c sqrt.c)
+CFLAGS = -Wall -Wextra -Werror 
 NAME = libft.a
 OBJ = $(SRC:.c=.o) 
 
@@ -35,8 +34,7 @@ $(NAME): $(OBJ)
 	@echo 'libft.a created'
 
 $(OBJ): %.o: %.c $(INC_DIR)libft.h
-	@$(CC) $(CFLAGS) -c $*.c -I $(INC_DIR)
-
+	@$(CC) $(CFLAGS) -c $*.c 
 .PHONY: clean
 clean:
 	@echo 'deleting object files'

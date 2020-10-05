@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_matfree.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:11:47 by aapricot          #+#    #+#             */
-/*   Updated: 2019/11/12 23:02:45 by aapricot         ###   ########.fr       */
+/*   Created: 2019/10/05 19:57:29 by aapricot          #+#    #+#             */
+/*   Updated: 2019/10/05 19:57:48 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_matfree(char **str)
+char			*ft_strndup(const char *s1, size_t n)
 {
-	int		x;
+	char			*p;
+	char			*rp;
 
-	x = 0;
-	while (str[x])
+	if (!(p = ft_strnew(n + 1)))
+		return (NULL);
+	rp = p;
+	while ((*p = *s1) && (size_t)(p - rp) < n)
 	{
-		free(str[x]);
-		x++;
+		p++;
+		s1++;
 	}
-	free(str);
-	str = NULL;
+	ft_memset(p, 0, 1 + n - (p - rp));
+	return (rp);
 }

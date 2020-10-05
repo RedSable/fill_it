@@ -6,7 +6,7 @@
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:38:56 by aapricot          #+#    #+#             */
-/*   Updated: 2019/09/27 17:59:50 by aapricot         ###   ########.fr       */
+/*   Updated: 2019/11/12 23:08:01 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,22 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE	21
 
 typedef	struct		s_list
 {
 	void			*content;
-	size_t			content_size;
+	int				content_size;
+	int				pos_x;
+	int				pos_y;
 	struct s_list	*next;
 }					t_list;
 
+int					ft_sqrt(int nb);
+void				ft_lstaddback(t_list **alst, t_list *new);
+char				*ft_strndup(const char *s1, size_t n);
 int					get_next_line(const int fd, char **line);
 size_t				ft_strlen(const char *str);
 int					ft_atoi(const char *str);
@@ -79,7 +87,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_putendl(char const *s);
-void				ft_matfree(char **str, int i);
+void				ft_matfree(char **str);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));

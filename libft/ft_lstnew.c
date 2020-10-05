@@ -6,7 +6,7 @@
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:35:21 by aapricot          #+#    #+#             */
-/*   Updated: 2019/09/18 17:04:00 by aapricot         ###   ########.fr       */
+/*   Updated: 2019/10/26 16:10:51 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	if (!(unsigned char *)content)
 	{
 		node->content = NULL;
+		node->pos_x = 0;
+		node->pos_y = 0;
 		node->content_size = 0;
 	}
 	else

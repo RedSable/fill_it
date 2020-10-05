@@ -6,7 +6,7 @@
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 16:33:50 by aapricot          #+#    #+#             */
-/*   Updated: 2019/09/18 19:26:37 by aapricot         ###   ########.fr       */
+/*   Updated: 2019/11/12 23:03:55 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**ft_strsplit(char const *s, char c)
 			end++;
 		if (!(*(str + i++) = ft_strsub(s, 0, end - s)))
 		{
-			ft_matfree(str, i);
+			ft_matfree(str);
 			return (NULL);
 		}
 		s = end;

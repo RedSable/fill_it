@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_matfree.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapricot <aapricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 14:11:47 by aapricot          #+#    #+#             */
-/*   Updated: 2019/11/12 23:02:45 by aapricot         ###   ########.fr       */
+/*   Created: 2019/10/19 16:33:52 by aapricot          #+#    #+#             */
+/*   Updated: 2019/10/19 19:32:24 by aapricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_matfree(char **str)
+int		ft_sqrt(int nb)
 {
-	int		x;
+	int		a;
 
-	x = 0;
-	while (str[x])
+	a = 1;
+	while (a * a < nb)
 	{
-		free(str[x]);
-		x++;
+		a++;
 	}
-	free(str);
-	str = NULL;
+	return (a);
 }
